@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# List of Lo-Fi songs with embed URLs and matching themes
+
 songs = [
     {
         "title": "Chillhop Essentials",
@@ -41,12 +41,11 @@ def vibe():
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():
     if request.method == 'POST':
-        # Here you would usually store the form data in a database,
-        # but since we're not using SQL, we'll just print the data.
+       
         name = request.form.get('name')
         satisfaction = request.form.get('satisfaction')
         comments = request.form.get('comments')
-        # Print or log the feedback
+        
         print(f"Name: {name}, Satisfaction: {satisfaction}, Comments: {comments}")
         return redirect(url_for('thankyou', name=name))
 
